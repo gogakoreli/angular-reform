@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "reform": [
+        "dist/reform"
+      ],
+      "reform/*": [
+        "dist/reform/*"
+      ]
+    }
   }
 }
