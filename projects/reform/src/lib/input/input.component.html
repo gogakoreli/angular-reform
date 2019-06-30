@@ -1,0 +1,15 @@
+<label>
+  {{ label }}
+  <i *ngIf="optional">- Optional</i>
+</label>
+<input class="form-control"
+  [type]="type"
+  [disabled]="disabled"
+  [class.is-invalid]="ngControl?.touched && ngControl?.invalid"
+  [ngModel]="value"
+  (ngModelChange)="updateAndNotify($event)"
+  (blur)="blur()" />
+<p *ngIf="ngControl?.touched && ngControl?.invalid"
+  class="error-message invalid-feedback">
+  This field is required!
+</p>

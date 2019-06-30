@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { ReformComponent } from './reform.component';
+import { InputModule } from './input/input.module';
 
 @NgModule({
-  declarations: [ReformComponent],
-  imports: [
-  ],
-  exports: [ReformComponent]
+  declarations: [],
+  imports: [],
+  exports: [InputModule],
 })
-export class ReformModule { }
+export class ReformModule {}
