@@ -11,14 +11,31 @@ export class AppComponent {
 
   public userTypes = ['Admin', 'User', 'Other'];
 
+  public statusData = [
+    {
+      value: 0,
+      name: 'Active',
+    },
+    {
+      value: 1,
+      name: 'Pending',
+    },
+    {
+      value: 2,
+      name: 'Canceled',
+    },
+  ];
+
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],
+      zip: [null],
       userType: [null, Validators.required],
       feedback: [null, Validators.required],
+      status: [null],
       agreeTerms: [null],
       isSwitchChecked: [null],
     });

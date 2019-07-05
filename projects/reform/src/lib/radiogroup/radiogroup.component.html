@@ -1,0 +1,17 @@
+<fieldset [disabled]="disabled">
+  <div class="custom-control custom-radio"
+    [class.custom-control-inline]="inline"
+    *ngFor="let item of (listData$ | async); index as index">
+    <input class="custom-control-input"
+      [id]="inputIds[index]"
+      type="radio"
+      [name]="inputId"
+      [value]="index"
+      (change)="change(item)"
+      [checked]="getValue(item) === value" />
+    <label class="custom-control-label"
+      [attr.for]="inputIds[index]">
+      {{ getDisplay(item) }}
+    </label>
+  </div>
+</fieldset>

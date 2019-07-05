@@ -4,6 +4,7 @@ import { CheckboxModule } from './checkbox/checkbox.module';
 import { SwitchModule } from './switch/switch.module';
 import { SelectModule } from './select/select.module';
 import { TextareaModule } from './textarea/textarea.module';
+import { RadiogroupModule } from './radiogroup/radiogroup.module';
 
 @NgModule({
   declarations: [],
@@ -14,6 +15,7 @@ import { TextareaModule } from './textarea/textarea.module';
     SwitchModule,
     SelectModule,
     TextareaModule,
+    RadiogroupModule,
   ],
 })
 export class ReformModule {}

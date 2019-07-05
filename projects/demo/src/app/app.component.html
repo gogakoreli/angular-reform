@@ -22,6 +22,12 @@
     </ref-input>
   </div>
 
+  <ref-input label="Zip"
+    type="number"
+    optional
+    formControlName="zip">
+  </ref-input>
+
   <ref-select label="User type"
     [data]="userTypes"
     formControlName="userType">
@@ -31,6 +37,13 @@
     placeholder="Leave us your feedback"
     formControlName="feedback">
   </ref-textarea>
+
+  <ref-radiogroup [data]="statusData"
+    [inline]="true"
+    displayMember="name"
+    valueMember="value"
+    formControlName="status">
+  </ref-radiogroup>
 
   <ref-switch label="Toggle this switch"
     formControlName="isSwitchChecked">
