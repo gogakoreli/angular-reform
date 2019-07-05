@@ -14,6 +14,7 @@ export class AppComponent {
   ngOnInit(): void {
     this.form = this.fb.group({
       firstName: [null, Validators.required],
+      agreeTerms: [null],
     });
   }
 
