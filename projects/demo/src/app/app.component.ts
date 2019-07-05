@@ -18,6 +18,7 @@ export class AppComponent {
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],
       userType: [null, Validators.required],
+      feedback: [null, Validators.required],
       agreeTerms: [null],
       isSwitchChecked: [null],
     });

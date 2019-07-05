@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  min-height: 50px;
+  flex: 1;
+}

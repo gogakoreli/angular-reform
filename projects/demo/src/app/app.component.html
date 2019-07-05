@@ -27,6 +27,11 @@
     formControlName="userType">
   </ref-select>
 
+  <ref-textarea label="Feedback"
+    placeholder="Leave us your feedback"
+    formControlName="feedback">
+  </ref-textarea>
+
   <ref-switch label="Toggle this switch"
     formControlName="isSwitchChecked">
   </ref-switch>
@@ -35,10 +40,12 @@
     formControlName="agreeTerms">
   </ref-checkbox>
 
-  <button class="btn btn-primary"
-    type="submit">
-    Submit form
-  </button>
+  <div>
+    <button class="btn btn-primary"
+      type="submit">
+      Submit form
+    </button>
+  </div>
 </form>
 
 <div>
