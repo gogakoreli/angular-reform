@@ -13,7 +13,7 @@ export class InputComponent extends InputBase {
   @Input() label: string;
   @Input() type: string = 'text';
 
-  private uniqueId: string = `fg-checkbox-${++nextUniqueId}`;
+  private uniqueId: string = `fg-input-${++nextUniqueId}`;
   @Input() id: string = this.uniqueId;
 
   public get inputId(): string {
