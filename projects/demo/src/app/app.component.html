@@ -22,6 +22,11 @@
     </ref-input>
   </div>
 
+  <ref-select label="User type"
+    [data]="userTypes"
+    formControlName="userType">
+  </ref-select>
+
   <ref-switch label="Toggle this switch"
     formControlName="isSwitchChecked">
   </ref-switch>
