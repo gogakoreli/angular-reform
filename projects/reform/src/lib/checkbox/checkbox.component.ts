@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  HostBinding,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { InputBase } from '../common/input-base';
 
 let nextUniqueId = 0;
@@ -7,6 +13,7 @@ let nextUniqueId = 0;
   selector: 'ref-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CheckboxComponent extends InputBase implements OnInit {
   @Input() label: string;

@@ -1,8 +1,9 @@
-<label>
+<label [attr.for]="inputId">
   {{ label }}
   <i *ngIf="optional">- Optional</i>
 </label>
 <input class="form-control"
+  [id]="inputId"
   [type]="type"
   [disabled]="disabled"
   [class.is-invalid]="ngControl?.touched && ngControl?.invalid"
