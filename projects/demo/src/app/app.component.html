@@ -11,9 +11,20 @@
 <form class="contact-form"
   [formGroup]="form"
   (ngSubmit)="submit()">
-  <ref-input label="First name"
-    formControlName="firstName">
-  </ref-input>
+
+  <div class="ref-row">
+    <ref-input label="First name"
+      formControlName="firstName">
+    </ref-input>
+
+    <ref-input label="Last name"
+      formControlName="lastName">
+    </ref-input>
+  </div>
+
+  <ref-switch label="Toggle this switch"
+    formControlName="isSwitchChecked">
+  </ref-switch>
 
   <ref-checkbox label="Agree to the terms & conditions"
     formControlName="agreeTerms">
@@ -21,7 +32,7 @@
 
   <button class="btn btn-primary"
     type="submit">
-    Submit Form
+    Submit form
   </button>
 </form>
 

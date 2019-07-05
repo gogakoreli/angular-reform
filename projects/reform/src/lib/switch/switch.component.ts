@@ -1,8 +1,8 @@
 import {
   Component,
   OnInit,
-  Input,
   HostBinding,
+  Input,
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { InputBase } from '../common/input-base';
@@ -10,15 +10,15 @@ import { InputBase } from '../common/input-base';
 let nextUniqueId = 0;
 
 @Component({
-  selector: 'ref-checkbox',
-  templateUrl: './checkbox.component.html',
-  styleUrls: ['./checkbox.component.scss'],
+  selector: 'ref-switch',
+  templateUrl: './switch.component.html',
+  styleUrls: ['./switch.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxComponent extends InputBase implements OnInit {
+export class SwitchComponent extends InputBase implements OnInit {
   @Input() label: string;
 
-  private uniqueId: string = `ref-checkbox-${++nextUniqueId}`;
+  private uniqueId: string = `ref-switch-${++nextUniqueId}`;
   @Input() id: string = this.uniqueId;
 
   public get inputId(): string {
@@ -26,7 +26,7 @@ export class CheckboxComponent extends InputBase implements OnInit {
   }
 
   @HostBinding('class.custom-control') customControlClass = true;
-  @HostBinding('class.custom-checkbox') customCheckboxClass = true;
+  @HostBinding('class.custom-switch') customSwitchClass = true;
 
   ngOnInit() {
     super.ngOnInit();

@@ -14,11 +14,13 @@ export class AppComponent {
   ngOnInit(): void {
     this.form = this.fb.group({
       firstName: [null, Validators.required],
+      lastName: [null, Validators.required],
       agreeTerms: [null],
+      isSwitchChecked: [null],
     });
   }
 
   public submit() {
-    console.log('bla');
+    console.log(this.form.valid, this.form.value);
   }
 }

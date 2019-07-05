@@ -1,0 +1,10 @@
+<input class="custom-control-input"
+  [id]="inputId"
+  type="checkbox"
+  [disabled]="disabled"
+  [ngModel]="value"
+  (ngModelChange)="updateAndNotify($event)" />
+<label class="custom-control-label"
+  [attr.for]="inputId">
+  {{ label }}
+</label>
