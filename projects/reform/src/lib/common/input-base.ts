@@ -7,6 +7,7 @@ import {
   Optional,
   HostBinding,
   Attribute,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { NgControl, FormGroupDirective } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -23,6 +24,7 @@ export abstract class InputBase extends ValueAccessorBase
     @Optional() protected injector: Injector,
     @Optional() protected parentFormGroup: FormGroupDirective,
     @Optional() public ngControl: NgControl,
+    @Optional() private cd: ChangeDetectorRef,
   ) {
     super();
     this.optional = this.optional != undefined;
@@ -35,6 +37,9 @@ export abstract class InputBase extends ValueAccessorBase
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe((_) => {
           ngControl.control.markAsTouched();
+          if (this.cd) {
+            this.cd.markForCheck();
+          }
         });
     }
   }
