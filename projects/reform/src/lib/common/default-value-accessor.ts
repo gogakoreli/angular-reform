@@ -1,20 +1,20 @@
-import { Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
-export abstract class ValueAccessorBase implements ControlValueAccessor {
+@Injectable()
+export class DefaultValueAccessor implements ControlValueAccessor {
+  public disabled = false;
+
   private _value: any;
   public get value(): any {
     return this._value;
   }
 
-  private onChange: (value: any) => {};
+  private onChange = (value: any) => {};
+  private onTouched = () => {};
 
-  protected onTouched: () => {};
-
-  @Input() disabled = false;
-
-  public updateAndNotify(obj: any): void {
-    this.writeValue(obj);
+  public updateAndNotify(value: any): void {
+    this.writeValue(value);
     this.notifyValueChange();
   }
 
@@ -24,8 +24,12 @@ export abstract class ValueAccessorBase implements ControlValueAccessor {
     }
   }
 
-  public writeValue(obj: any): void {
-    this._value = obj;
+  public touch() {
+    this.onTouched();
+  }
+
+  public writeValue(value: any): void {
+    this._value = value;
   }
 
   public registerOnChange(fn: () => {}): void {

@@ -6,6 +6,7 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { InputBase } from '../common/input-base';
+import { DefaultValueAccessor } from '../common/default-value-accessor';
 
 let nextUniqueId = 0;
 
@@ -14,6 +15,7 @@ let nextUniqueId = 0;
   templateUrl: './switch.component.html',
   styleUrls: ['./switch.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [DefaultValueAccessor],
 })
 export class SwitchComponent extends InputBase implements OnInit {
   @Input() label: string;

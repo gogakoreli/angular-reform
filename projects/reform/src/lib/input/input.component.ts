@@ -1,5 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { InputBase } from '../common/input-base';
+import { DefaultValueAccessor } from '../common/default-value-accessor';
 
 let nextUniqueId = 0;
 
@@ -8,6 +9,7 @@ let nextUniqueId = 0;
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [DefaultValueAccessor],
 })
 export class InputComponent extends InputBase {
   @Input() label: string;

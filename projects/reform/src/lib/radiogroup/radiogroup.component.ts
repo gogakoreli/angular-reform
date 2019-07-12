@@ -7,6 +7,7 @@ import {
 import { BehaviorSubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { InputBase } from '../common/input-base';
+import { DefaultValueAccessor } from '../common/default-value-accessor';
 
 let nextUniqueId = 0;
 
@@ -15,6 +16,7 @@ let nextUniqueId = 0;
   templateUrl: './radiogroup.component.html',
   styleUrls: ['./radiogroup.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [DefaultValueAccessor],
 })
 export class RadiogroupComponent extends InputBase implements OnInit {
   public listData$ = new BehaviorSubject<any[]>([]);

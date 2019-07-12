@@ -5,6 +5,7 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { InputBase } from '../common/input-base';
+import { DefaultValueAccessor } from '../common/default-value-accessor';
 
 let nextUniqueId = 0;
 
@@ -13,6 +14,7 @@ let nextUniqueId = 0;
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [DefaultValueAccessor],
 })
 export class SelectComponent extends InputBase implements OnInit {
   @Input() label: string;

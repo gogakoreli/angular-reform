@@ -1,23 +1,33 @@
-import { ValueAccessorBase } from './value-accessor-base';
 import {
   OnInit,
   OnDestroy,
-  AfterViewInit,
   Injector,
   Optional,
   HostBinding,
   Attribute,
   ChangeDetectorRef,
+  Input,
 } from '@angular/core';
 import { NgControl, FormGroupDirective } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { DefaultValueAccessor } from './default-value-accessor';
 
-export abstract class InputBase extends ValueAccessorBase
-  implements OnInit, OnDestroy, AfterViewInit {
+export abstract class InputBase implements OnInit, OnDestroy {
   @HostBinding('class.form-group') formGroupClass = true;
 
-  protected unsubscribe$ = new Subject<boolean>();
+  public get disabled() {
+    return this.valueAccessor.disabled;
+  }
+
+  @Input() public set disabled(value: boolean) {
+    this.valueAccessor.setDisabledState(value);
+  }
+  public get value() {
+    return this.valueAccessor.value;
+  }
+
+  protected unsubscribe$ = new Subject();
 
   constructor(
     @Attribute('optional') public optional: boolean,
@@ -25,20 +35,22 @@ export abstract class InputBase extends ValueAccessorBase
     @Optional() protected parentFormGroup: FormGroupDirective,
     @Optional() public ngControl: NgControl,
     @Optional() private cd: ChangeDetectorRef,
+    private valueAccessor: DefaultValueAccessor,
   ) {
-    super();
     this.optional = this.optional != undefined;
     if (ngControl) {
-      ngControl.valueAccessor = this;
+      ngControl.valueAccessor = this.valueAccessor;
     }
 
     if (parentFormGroup) {
       parentFormGroup.ngSubmit
         .pipe(takeUntil(this.unsubscribe$))
         .subscribe((_) => {
-          ngControl.control.markAsTouched();
-          if (this.cd) {
-            this.cd.markForCheck();
+          if (!this.disabled) {
+            ngControl.control.markAsTouched();
+            if (this.cd) {
+              this.cd.markForCheck();
+            }
           }
         });
     }
@@ -51,9 +63,11 @@ export abstract class InputBase extends ValueAccessorBase
     this.unsubscribe$.complete();
   }
 
-  ngAfterViewInit(): void {}
+  public updateAndNotify(value: any) {
+    this.valueAccessor.updateAndNotify(value);
+  }
 
   public blur() {
-    this.onTouched && this.onTouched();
+    this.valueAccessor.touch();
   }
 }
