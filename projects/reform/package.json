@@ -1,6 +1,13 @@
 {
-  "name": "reform",
+  "name": "angular-reform",
   "version": "0.0.1",
+  "author": "Goga Koreli <gogakoreli@gmail.com>",
+  "description": "Angular Form Components based on Bootstrap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gogakoreli/angular-reform.git"
+  },
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0"

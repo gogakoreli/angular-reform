@@ -14,8 +14,8 @@
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"],
     "paths": {
-      "reform": ["dist/reform"],
-      "reform/*": ["dist/reform/*"]
+      "angular-reform": ["dist/reform"],
+      "angular-reform/*": ["dist/reform/*"]
     }
   }
 }
