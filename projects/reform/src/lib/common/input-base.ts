@@ -23,6 +23,7 @@ export abstract class InputBase implements OnInit, OnDestroy {
   @Input() public set disabled(value: boolean) {
     this.valueAccessor.setDisabledState(value);
   }
+
   public get value() {
     return this.valueAccessor.value;
   }

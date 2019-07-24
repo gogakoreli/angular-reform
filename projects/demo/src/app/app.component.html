@@ -8,6 +8,10 @@
   <button class="btn btn-danger">Danger</button>
 </div>
 
+<ref-input label="testNgModel"
+  [ngModel]="testNgModel">
+</ref-input>
+
 <form class="contact-form"
   [formGroup]="form"
   (ngSubmit)="submit()">

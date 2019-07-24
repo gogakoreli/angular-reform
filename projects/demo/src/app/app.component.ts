@@ -11,6 +11,8 @@ export class AppComponent {
 
   public userTypes = ['Admin', 'User', 'Other'];
 
+  public testNgModel = 'testNgModel';
+
   public statusData = [
     {
       value: 0,
@@ -30,7 +32,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      firstName: [null, Validators.required],
+      firstName: ['First Name', Validators.required],
       lastName: [null, Validators.required],
       zip: [null],
       userType: [null, Validators.required],

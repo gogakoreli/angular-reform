@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ChangeDetectorRef, Optional } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 
-@Injectable()
-export class DefaultValueAccessor implements ControlValueAccessor {
+export class ValueAccessor implements ControlValueAccessor {
   public disabled = false;
 
   private _value: any;
@@ -42,5 +41,17 @@ export class DefaultValueAccessor implements ControlValueAccessor {
 
   public setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+}
+
+@Injectable()
+export class DefaultValueAccessor extends ValueAccessor {
+  constructor(@Optional() private cd: ChangeDetectorRef) {
+    super();
+  }
+
+  public writeValue(value: any): void {
+    super.writeValue(value);
+    this.cd && this.cd.markForCheck();
   }
 }
