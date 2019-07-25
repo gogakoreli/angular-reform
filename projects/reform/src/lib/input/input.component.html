@@ -1,4 +1,5 @@
-<label [attr.for]="inputId">
+<label *ngIf="label"
+  [attr.for]="inputId">
   {{ label }}
   <i *ngIf="optional">- Optional</i>
 </label>
