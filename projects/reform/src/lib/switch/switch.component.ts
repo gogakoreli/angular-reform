@@ -32,7 +32,5 @@ export class SwitchComponent extends InputBase implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
-
-    this.formGroupClass = false;
   }
 }

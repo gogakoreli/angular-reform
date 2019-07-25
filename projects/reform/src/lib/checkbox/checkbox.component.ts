@@ -32,7 +32,5 @@ export class CheckboxComponent extends InputBase implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
-
-    this.formGroupClass = false;
   }
 }

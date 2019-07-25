@@ -14,8 +14,6 @@ import { takeUntil } from 'rxjs/operators';
 import { DefaultValueAccessor } from './default-value-accessor';
 
 export abstract class InputBase implements OnInit, OnDestroy {
-  @HostBinding('class.form-group') formGroupClass = true;
-
   public get disabled() {
     return this.valueAccessor.disabled;
   }
