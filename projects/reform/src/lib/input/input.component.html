@@ -8,6 +8,7 @@
   [type]="type"
   [disabled]="disabled"
   [class.is-invalid]="ngControl?.touched && ngControl?.invalid"
+  [placeholder]="placeholder"
   [ngModel]="value"
   (ngModelChange)="updateAndNotify($event)"
   (blur)="blur()" />

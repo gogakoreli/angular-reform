@@ -14,6 +14,7 @@ let nextUniqueId = 0;
 export class InputComponent extends InputBase {
   @Input() label: string;
   @Input() type: string = 'text';
+  @Input() placeholder: string;
 
   private uniqueId: string = `ref-input-${++nextUniqueId}`;
   @Input() id: string = this.uniqueId;
