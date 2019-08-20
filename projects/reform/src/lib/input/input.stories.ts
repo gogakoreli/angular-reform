@@ -14,22 +14,30 @@ import { InputComponent } from './input.component';
 //   onArchiveTask: action('onArchiveTask'),
 // };
 
-storiesOf('Task', module)
+storiesOf('Input', module)
   .addDecorator(
     moduleMetadata({
       declarations: [InputComponent],
     }),
   )
-  .add('default', () => {
-    return {
-      template: `<ref-input>BLA</ref-input>`,
-      props: {
-        // task,
-        // onPinTask: actions.onPinTask,
-        // onArchiveTask: actions.onArchiveTask,
-      },
-    };
-  });
+  .add(
+    'Default',
+    () => {
+      return {
+        template: `
+        <div style="padding: 3rem">
+          <ref-input label="First name"></ref-input>
+        </div>
+        `,
+        props: {
+          // task,
+          // onPinTask: actions.onPinTask,
+          // onArchiveTask: actions.onArchiveTask,
+        },
+      };
+    },
+    {},
+  );
 // .add('pinned', () => {
 //   return {
 //     template: `<ref-input [task]="task" (onPinTask)="onPinTask($event)" (onArchiveTask)="onArchiveTask($event)" ></ref-input>`,

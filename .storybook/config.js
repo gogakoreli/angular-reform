@@ -7,3 +7,5 @@ function loadStories() {
 }
 
 configure(loadStories, module);
+
+import 'bootstrap/dist/css/bootstrap.css';
