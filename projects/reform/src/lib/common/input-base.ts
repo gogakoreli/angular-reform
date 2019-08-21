@@ -30,7 +30,7 @@ export abstract class InputBase implements OnInit, OnDestroy {
     @Attribute('optional') public optional: boolean,
     @Optional() protected parentFormGroup: FormGroupDirective,
     @Optional() public ngControl: NgControl,
-    @Optional() private cd: ChangeDetectorRef,
+    private cd: ChangeDetectorRef,
     private valueAccessor: DefaultValueAccessor,
   ) {
     this.optional = this.optional != undefined;
@@ -44,9 +44,7 @@ export abstract class InputBase implements OnInit, OnDestroy {
         .subscribe((_) => {
           if (!this.disabled) {
             ngControl.control.markAsTouched();
-            if (this.cd) {
-              this.cd.markForCheck();
-            }
+            this.cd.detectChanges();
           }
         });
     }

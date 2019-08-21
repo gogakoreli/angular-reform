@@ -46,12 +46,12 @@ export class ValueAccessor implements ControlValueAccessor {
 
 @Injectable()
 export class DefaultValueAccessor extends ValueAccessor {
-  constructor(@Optional() private cd: ChangeDetectorRef) {
+  constructor(private cd: ChangeDetectorRef) {
     super();
   }
 
   public writeValue(value: any): void {
     super.writeValue(value);
-    this.cd && this.cd.markForCheck();
+    this.cd.detectChanges();
   }
 }
