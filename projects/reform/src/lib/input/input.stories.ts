@@ -1,6 +1,7 @@
 import { storiesOf, moduleMetadata } from '@storybook/angular';
-// import { action } from '@storybook/addon-actions';
+import { action } from '@storybook/addon-actions';
 import { InputComponent } from './input.component';
+import { FormsModule } from '@angular/forms';
 
 // export const task = {
 //   id: '1',
@@ -14,25 +15,27 @@ import { InputComponent } from './input.component';
 //   onArchiveTask: action('onArchiveTask'),
 // };
 
+// export const onChange = action('onChange');
+
 storiesOf('Input', module)
   .addDecorator(
     moduleMetadata({
       declarations: [InputComponent],
+      imports: [FormsModule],
     }),
   )
   .add(
     'Default',
     () => {
       return {
+        component: InputComponent,
         template: `
-        <div style="padding: 3rem">
-          <ref-input label="First name"></ref-input>
-        </div>
+          <ref-input [label]="label" [ngModel]="value" (ngModelChange)="valueChange($event)"></ref-input>
         `,
         props: {
-          // task,
-          // onPinTask: actions.onPinTask,
-          // onArchiveTask: actions.onArchiveTask,
+          value: 'Goga',
+          valueChange: action('onChange'),
+          label: 'First name',
         },
       };
     },
