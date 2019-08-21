@@ -1,9 +1,7 @@
 import {
   OnInit,
   OnDestroy,
-  Injector,
   Optional,
-  HostBinding,
   Attribute,
   ChangeDetectorRef,
   Input,
@@ -30,7 +28,6 @@ export abstract class InputBase implements OnInit, OnDestroy {
 
   constructor(
     @Attribute('optional') public optional: boolean,
-    @Optional() protected injector: Injector,
     @Optional() protected parentFormGroup: FormGroupDirective,
     @Optional() public ngControl: NgControl,
     @Optional() private cd: ChangeDetectorRef,
