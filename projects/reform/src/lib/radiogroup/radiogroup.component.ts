@@ -24,6 +24,8 @@ export class RadiogroupComponent extends InputBase implements OnInit {
     this.listData$.next(value || []);
   }
 
+  @Input() label: string;
+
   @Input() inline: boolean = false;
   @Input() displayMember: string;
   @Input() valueMember: string;

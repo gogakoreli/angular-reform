@@ -1,4 +1,8 @@
 <fieldset [disabled]="disabled">
+  <legend *ngIf="label">
+    {{ label }}
+    <i *ngIf="optional">- Optional</i>
+  </legend>
   <div class="custom-control custom-radio"
     [class.custom-control-inline]="inline"
     *ngFor="let item of (listData$ | async); index as index">
