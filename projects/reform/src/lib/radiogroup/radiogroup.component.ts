@@ -43,11 +43,6 @@ export class RadiogroupComponent extends InputBase implements OnInit {
     super.ngOnInit();
 
     this.listData$.pipe(takeUntil(this.unsubscribe$)).subscribe((listData) => {
-      if (this.value == null) {
-        const firstItem = listData && listData.length > 0 && listData[0];
-        this.change(firstItem);
-      }
-
       this.inputIds = listData.map((_, index) => `${this.uniqueId}-${index}`);
     });
   }
@@ -60,6 +55,12 @@ export class RadiogroupComponent extends InputBase implements OnInit {
   public getValue = (item: any) => getValue(item, this.valueMember);
 
   public getDisplay = (item: any) => getDisplay(item, this.displayMember);
+
+  public isChecked(item: any) {
+    const value = this.getValue(item);
+    const result = value === this.value;
+    return result;
+  }
 }
 
 function getDisplay(item: any, displayMember: string): string {

@@ -12,7 +12,7 @@
       [name]="inputId"
       [value]="index"
       (change)="change(item)"
-      [checked]="getValue(item) === value" />
+      [checked]="isChecked(item)" />
     <label class="custom-control-label"
       [attr.for]="inputIds[index]">
       {{ getDisplay(item) }}
